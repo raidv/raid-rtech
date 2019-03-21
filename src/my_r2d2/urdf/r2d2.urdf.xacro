@@ -256,9 +256,18 @@
   <joint name="boxtolens" type="prismatic">
     <parent link="box"/>
     <child link="lens"/>
-    <limit effort=1000 lower="${- lensradius}" upper="0" velocity="0.5"/>
+    <limit effort="1000" lower="${- lensradius}" upper="0" velocity="0.5"/>
     <origin xyz="0 0 0"/>
   </joint>
 
+  <link name="base_footprint">
+
+  </link>
+
+  <joint name="basetofootprint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 ${-(0.25 - leglen - (wheeldiam/2 + .05) - wheeldiam/2)}"/>
+  </joint>
 </robot>
 
