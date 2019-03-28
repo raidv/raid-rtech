@@ -184,8 +184,6 @@ Visualization Manager:
           Value: true
         lens:
           Value: true
-        odom:
-          Value: true
         right_back_wheel:
           Value: true
         right_base:
@@ -204,39 +202,38 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        odom:
-          base_footprint:
-            base_link:
-              gripper_pole:
-                left_gripper:
-                  left_tip:
-                    {}
-                right_gripper:
-                  right_tip:
-                    {}
-              head:
-                box:
-                  lens:
-                    {}
-              left_leg:
-                left_base:
-                  left_back_wheel:
-                    {}
-                  left_front_wheel:
-                    {}
-              right_leg:
-                right_base:
-                  right_back_wheel:
-                    {}
-                  right_front_wheel:
-                    {}
+        base_footprint:
+          base_link:
+            gripper_pole:
+              left_gripper:
+                left_tip:
+                  {}
+              right_gripper:
+                right_tip:
+                  {}
+            head:
+              box:
+                lens:
+                  {}
+            left_leg:
+              left_base:
+                left_back_wheel:
+                  {}
+                left_front_wheel:
+                  {}
+            right_leg:
+              right_base:
+                right_back_wheel:
+                  {}
+                right_front_wheel:
+                  {}
       Update Interval: 0
       Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: odom
+    Fixed Frame: base_footprint
     Frame Rate: 30
   Name: root
   Tools:
@@ -257,7 +254,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 4.48688984
+      Distance: 2.9570787
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
@@ -272,10 +269,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.720397353
+      Pitch: 0.0453973822
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.983581662
+      Yaw: 0.668581963
     Saved: ~
 Window Geometry:
   Displays:
@@ -293,5 +290,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1216
-  X: 541
-  Y: 192
+  X: 65
+  Y: 28
