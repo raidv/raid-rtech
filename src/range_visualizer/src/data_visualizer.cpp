@@ -36,7 +36,7 @@ int main(int argc, char **argv)
     msg.min_range = min_range;
     msg.max_range = max_range;
 
-    float r = min_range + static_cast <float> (rand()) / static_cast <float> (RAND_MAX/((max_range*2)-min_range));
+    float r = min_range + static_cast <float> (rand()) / static_cast <float> (RAND_MAX/(max_range-min_range));
     msg.range = r;
 
 
