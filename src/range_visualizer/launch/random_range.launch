@@ -1,0 +1,7 @@
+<launch>
+
+  <node pkg="range_visualizer" name="data_visualizer" type="data_visualizer"/>
+  <node pkg="tf" type="static_transform_publisher" name="random_range_to_map" args="0 0 0 0 0 0 map random_range 100" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find range_visualizer)/config/random_range.rviz"/>
+
+</launch>
