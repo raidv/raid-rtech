@@ -8,9 +8,7 @@ Panels:
         - /Status1
         - /Range1
         - /Range2
-        - /Range2/Status1
         - /Range3
-        - /Range3/Status1
       Splitter Ratio: 0.5
     Tree Height: 565
   - Class: rviz/Selection
@@ -66,7 +64,7 @@ Visualization Manager:
     - Alpha: 0.5
       Buffer Length: 1
       Class: rviz/Range
-      Color: 255; 255; 255
+      Color: 85; 0; 255
       Enabled: true
       Name: Range
       Queue Size: 100

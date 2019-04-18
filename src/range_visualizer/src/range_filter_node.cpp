@@ -8,19 +8,19 @@
 std::vector< float > arr(25);
 sensor_msgs::Range prev_msg;
 
-void Callback(const sensor_msgs::Range::ConstPtr& msg)
+void rangeCallback(const sensor_msgs::Range::ConstPtr& msg)
 {
   prev_msg = *msg;
   arr.insert(arr.begin(), msg->range);
   arr.pop_back();
-  ROS_INFO("Valor indice: [%f]", msg->range);
+  ROS_INFO("Range: [%f]", msg->range);
 }
 
 int main(int argc, char **argv)
 {
   ros::init(argc, argv, "range_filter_node");
   ros::NodeHandle n;
-  ros::Subscriber sub = n.subscribe("ultrasound/raw", 500, Callback);
+  ros::Subscriber sub = n.subscribe("ultrasound/raw", 500, rangeCallback);
 //  ros::spin();
 
   ros::Publisher pub = n.advertise<sensor_msgs::Range>("ultrasound/filtered", 500);
@@ -28,7 +28,7 @@ int main(int argc, char **argv)
   ros::Rate loop_rate(10);
   //ros::spinOnce();
 
-  int count = 0;
+  //int count = 0;
   while (ros::ok())
   {
     float average = accumulate( arr.begin(), arr.end(), 0.0)/arr.size(); 
@@ -46,7 +46,7 @@ int main(int argc, char **argv)
     pub.publish(msg);
     ros::spinOnce();
     loop_rate.sleep();
-    ++count;
+    //++count;
   }
 
 
