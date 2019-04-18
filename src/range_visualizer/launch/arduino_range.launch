@@ -1,0 +1,7 @@
+<launch>
+  <node pkg="rosserial_python" name="serial_node" type="serial_node.py" args="/dev/ttyUSB0"/>
+  <node pkg="range_visualizer" name="range_filter_node" type="range_filter_node"/>
+  <node pkg="tf" type="static_transform_publisher" name="raw_range_to_map" args="0 0.5 0 0 0 0 map raw_range 100" />
+  <node pkg="tf" type="static_transform_publisher" name="filtered_range_to_map" args="0 -0.5 0 0 0 0 map filtered_range 100" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find range_visualizer)/config/arduino_range.rviz"/>
+</launch>
