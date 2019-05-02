@@ -15,3 +15,7 @@
 	path = panda_moveit_config
 	url = https://github.com/ros-planning/panda_moveit_config.git
 	branch = melodic-devel
+[submodule "motoman"]
+	path = motoman
+	url = https://github.com/ros-industrial/motoman.git
+	branch = kinetic-devel

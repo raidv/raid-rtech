@@ -1,0 +1,14 @@
+<launch>
+
+  <!-- By default, we are not in debug mode -->
+  <arg name="debug" default="false" />
+
+  <!-- GDB Debug Option -->
+  <arg unless="$(arg debug)" name="launch_prefix" value="" />
+  <arg     if="$(arg debug)" name="launch_prefix"
+     value="gdb -x $(find motoman_sia5d_moveit_config)/launch/gdb_settings.gdb --ex run --args" />
+
+  <node name="triangle_move_group" pkg="motoman_sia5d_moveit_config" type="triangle_move_group" respawn="false" launch-prefix="$(arg launch_prefix)" output="screen">
+  </node>
+
+</launch>
