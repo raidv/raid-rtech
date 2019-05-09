@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+
+<!--Generates a urdf from the macro in sia5_macro.xacro -->
+
+<robot name="motoman_sia5d" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <material name="blue">
+    <color rgba="0 0 0.8 1"/>
+  </material>
+	
+  <link name="base_box">
+    <visual>
+      <geometry>
+        <box size="1 2 0.1"/>
+      </geometry>
+      <material name="blue"/>
+      <origin xyz="0 0 0.05"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.05"/>
+      <geometry>
+        <box size="1 2 0.1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="lefttobox" type="fixed">
+    <parent link="base_box"/>
+    <child link="left_base_link"/>
+    <origin xyz="0 0.5 0.1"/>
+  </joint>
+  <joint name="righttobox" type="fixed">
+    <parent link="base_box"/>
+    <child link="right_base_link"/>
+    <origin xyz="0 -0.5 0.1"/>
+  </joint>
+
+	<xacro:include filename="$(find dual_manipulator_support)/urdf/sia5d_macro.xacro"/>
+	<xacro:motoman_sia5d prefix="left_"/>
+
+	<xacro:include filename="$(find dual_manipulator_support)/urdf/sia5d_macro.xacro"/>
+	<xacro:motoman_sia5d prefix="right_"/>
+</robot>
+
